@@ -4,60 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Contactos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header text-center">
-            <h1><i class="fas fa-address-book me-2"></i>Registro de Contactos</h1>
-            <p class="lead">Gestiona tu lista de contactos de forma fácil y rápida</p>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <i class="fas fa-user-plus me-2"></i>Agregar Nuevo Contacto
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Registro de Contactos</h1>
+        
+        <!-- Formulario de contacto -->
+        <div class="card shadow mb-5">
+            <div class="card-header bg-primary text-white">
+                <h2 class="h5 mb-0">Agregar Nuevo Contacto</h2>
+            </div>
+            <div class="card-body">
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="name" required>
                     </div>
-                    <div class="card-body">
-                        <form id="contactForm">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">👤 Nombre</label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">📧 Email</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone" class="form-label">📞 Teléfono</label>
-                                <input type="tel" class="form-control" id="phone" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="fas fa-plus-circle me-2"></i>Agregar Contacto
-                            </button>
-                        </form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
                     </div>
-                </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Contacto</button>
+                </form>
             </div>
         </div>
-
-        <div class="card mt-4">
-            <div class="card-header">
-                <i class="fas fa-list me-2"></i>Lista de Contactos
+        
+        <!-- Tabla de contactos -->
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h2 class="h5 mb-0">Contactos Registrados</h2>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Nombre</th>
                                 <th>Email</th>
                                 <th>Teléfono</th>
-                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="contactsTable">
@@ -65,21 +55,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="emptyMessage" class="empty-message">
-                    <i class="fas fa-inbox fa-3x mb-3"></i>
-                    <p>No hay contactos registrados. Agrega tu primer contacto usando el formulario.</p>
-                </div>
             </div>
         </div>
-
-        <footer>
-            <p>Registro de Contactos &copy; 2023 - Aplicación desarrollada con Bootstrap y JavaScript</p>
-        </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
-

@@ -1,39 +1,39 @@
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
-
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = 3000;
 
-// Middleware
-app.use(cors());
+// Middleware para parsear JSON
 app.use(express.json());
-app.use(express.static(path.join(__dirname))); // Servir archivos estáticos
+app.use(express.static('public'));
 
-// Array para almacenar contactos (en memoria)
+// Array en memoria para almacenar contactos
 let contacts = [];
 let nextId = 1;
 
-// Rutas
-
 // Ruta principal - servir el archivo HTML
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Obtener todos los contactos
+// Ruta para obtener todos los contactos
 app.get('/contacts', (req, res) => {
     res.json(contacts);
 });
 
-// Agregar un nuevo contacto
+// Ruta para agregar un nuevo contacto
 app.post('/contacts', (req, res) => {
     const { name, email, phone } = req.body;
     
+    // Validación básica
     if (!name || !email || !phone) {
-        return res.status(400).json({ error: 'Todos los campos son requeridos' });
+        return res.status(400).json({ 
+            success: false, 
+            message: 'Todos los campos son requeridos' 
+        });
     }
     
+    // Crear nuevo contacto
     const newContact = {
         id: nextId++,
         name,
@@ -41,25 +41,17 @@ app.post('/contacts', (req, res) => {
         phone
     };
     
+    // Agregar a la lista
     contacts.push(newContact);
-    res.status(201).json(newContact);
+    
+    res.json({ 
+        success: true, 
+        message: 'Contacto agregado correctamente',
+        contact: newContact
+    });
 });
 
-// Eliminar un contacto
-app.delete('/contacts/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const initialLength = contacts.length;
-    
-    contacts = contacts.filter(contact => contact.id !== id);
-    
-    if (contacts.length === initialLength) {
-        return res.status(404).json({ error: 'Contacto no encontrado' });
-    }
-    
-    res.status(204).send();
-});
-
-// Iniciar el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+// Iniciar servidor
+app.listen(port, () => {
+    console.log(`Servidor ejecutándose en http://localhost:${port}`);
 });
