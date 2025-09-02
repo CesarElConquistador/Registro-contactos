@@ -1,0 +1,68 @@
+body {
+    background-color: #3052759e;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.header {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    padding: 2rem 0;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+.card-header {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+    font-weight: 600;
+}
+.btn-primary {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    border: none;
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5b4ee6, #9188fd);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.table-responsive {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.table thead {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(108, 92, 231, 0.1);
+}
+.action-buttons .btn {
+    padding: 0.25rem 0.5rem;
+}
+.empty-message {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+    font-style: italic;
+}
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+.form-label {
+    font-weight: 500;
+}
+.form-control:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 0.25rem rgba(108, 92, 231, 0.25);
+}
